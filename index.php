@@ -1,3 +1,5 @@
+<?php require "php_scripts/get_entries.php"; ?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -17,7 +19,9 @@
     </header>
 
     <main>
-        <table class="Main-Display">
+        <div class="Main-table"></div>
+        <?php $entries = getEntries(); ?>
+        <table border="1">
             <tr>
                 <th>Day</th>
                 <th>Date</th>
@@ -25,13 +29,20 @@
                 <th>Sport</th>
                 <th>Teams</th>
             </tr>
-            <tr>
-                <td>Sat.</td>
-                <td>2024-02-10</td>
-                <td>14:00</td>
-                <td>Australian Football</td>
-                <td>Hurstbridge - Vienna Galahs</td>
-            </tr>
+            <?php 
+            foreach ($entries as $entry) { 
+                ?>
+                <tr>
+                    
+                    <td>Sat.</td>
+                    <td><?php echo $entry['Event_Date'] ?> </td>
+                    <td><?php echo $entry['Event_Time'] ?></td>
+                    <td><?php echo $entry['Sport'] ?></td>
+                    <td><?php echo $entry['Home']?> - <?php echo $entry['Away']?></td>
+                </tr>
+            <?php
+            }
+        ?>
         </table>
     </main>
 </body>
