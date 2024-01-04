@@ -1,0 +1,309 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "DB Notebook",
+    "content": "\\about\nCREATE DATABASE SportRadarCalendarChallenge\nUSE sportradarcalendarchallenge\nCREATE TABLE Locations (id INT PRIMARY KEY AUTO_INCREMENT,\nStreet_Number INT,\nStreet_Name VARCHAR(255),\nCity VARCHAR(100),\nState VARCHAR(100),\nCountry VARCHAR(100),\nPost_Code INT);\nCREATE TABLE Stadiums (id INT PRIMARY KEY AUTO_INCREMENT,\nName VARCHAR(255),\nBase_Name VARCHAR(255),\n_Location INT,\nFOREIGN KEY (_Location)\n    REFERENCES Locations(id)\n    ON DELETE SET NULL);\nCREATE TABLE Teams (id INT PRIMARY KEY AUTO_INCREMENT,\nDisplay_Name VARCHAR(50),\nFull_Name VARCHAR(100),\nCity VARCHAR(50), \n_Location INT,\n_Stadium INT,\nContact VARCHAR(100),\nSport VARCHAR(100),\nFOREIGN KEY (_Location)\n    REFERENCES Locations(id)\n    ON DELETE SET NULL,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE SET NULL);\nCREATE TABLE Calendar_Entries (id INT PRIMARY KEY AUTO_INCREMENT,\nSport VARCHAR(100),\n_HomeTeam INT,\n_AwayTeam INT,\nEvent_Date DATE,\nEvent_Time TIME,\n_Stadium INT,\nFOREIGN KEY (_HomeTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_AwayTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE CASCADE);\nCREATE TABLE Results (id INT PRIMARY KEY AUTO_INCREMENT,\nSport VARCHAR(100),\n_HomeTeam INT,\n_AwayTeam INT,\nEvent_Date DATE,\nEvent_Time TIME,\n_Stadium INT,\nHomeScore VARCHAR(50),\nAwayScore VARCHAR(50),\nResult INT DEFAULT 3,\nFOREIGN KEY (_HomeTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_AwayTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE CASCADE);\n",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 67,
+                    "column": 1
+                },
+                "position": {
+                    "lineNumber": 67,
+                    "column": 1
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 41,
+                "column": 1
+            },
+            "firstPositionDeltaTop": -16
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 1,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "content": "Welcome to the MySQL Shell - DB Notebook.\n\nPress Ctrl+Enter to execute the code block.\n\nExecute \\sql to switch to SQL, \\js to JavaScript and \\ts to TypeScript mode.\nExecute \\help or \\? for help;",
+                            "language": "ansi"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 6
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 2,
+                "end": 2,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "24ae34ab-00b5-443a-91d1-1c0d8d6a1f49",
+                            "content": "OK, 1 row affected in 7.887ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 43
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 3,
+                "end": 3,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "d8eaaf2b-6931-4bfc-d609-9e1df72d2a1e",
+                            "content": "OK, 0 records retrieved in 0s"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 31
+                        },
+                        "contentStart": 0,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 4,
+                "end": 10,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "93f7381e-e68d-4ac2-e500-c8d319949b0f",
+                            "content": "OK, 0 records retrieved in 24.468ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 180
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 11,
+                "end": 17,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "0ab41168-049f-4170-97c4-76dfde15a674",
+                            "content": "OK, 0 records retrieved in 17.064ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 193
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 18,
+                "end": 31,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "e57d1ab0-da17-4a8f-fdec-6b9d622b93ad",
+                            "content": "OK, 0 records retrieved in 19.617ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 347
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 32,
+                "end": 47,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "113207f4-edf2-4051-dc6f-d6ef88176665",
+                            "content": "OK, 0 records retrieved in 23.796ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 382
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 48,
+                "end": 66,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 4,
+                            "index": 0,
+                            "resultId": "df0a829e-a6cf-4f78-da84-6b501611543c",
+                            "content": "OK, 0 records retrieved in 19.702ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 441
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 67,
+                "end": 67,
+                "language": "mysql",
+                "currentHeight": 180,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
