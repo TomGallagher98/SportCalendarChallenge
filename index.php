@@ -17,6 +17,21 @@
     </header>
 
     <main>
-        
+        <table class="Main-Display">
+            <tr>
+                <th>Day</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Sport</th>
+                <th>Teams</th>
+            </tr>
+            <tr>
+                <td>Sat.</td>
+                <td>2024-02-10</td>
+                <td>14:00</td>
+                <td>Australian Football</td>
+                <td>Hurstbridge - Vienna Galahs</td>
+            </tr>
+        </table>
     </main>
 </body>
