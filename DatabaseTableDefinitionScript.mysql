@@ -1,0 +1,70 @@
+CREATE DATABASE IF NOT EXISTS SportRadarCalendarChallenge;
+USE sportradarcalendarchallenge;
+
+CREATE TABLE IF NOT EXISTS Locations (id INT PRIMARY KEY AUTO_INCREMENT,
+Street_Number INT,
+Street_Name VARCHAR(255),
+City VARCHAR(100),
+State VARCHAR(100),
+Country VARCHAR(100),
+Post_Code INT);
+
+CREATE TABLE IF NOT EXISTS Stadiums (id INT PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(255),
+Base_Name VARCHAR(255),
+_Location INT,
+FOREIGN KEY (_Location)
+    REFERENCES Locations(id)
+    ON DELETE SET NULL);
+
+CREATE TABLE IF NOT EXISTS Teams (id INT PRIMARY KEY AUTO_INCREMENT,
+Display_Name VARCHAR(50),
+Full_Name VARCHAR(100),
+City VARCHAR(50), 
+_Location INT,
+_Stadium INT,
+Contact VARCHAR(100),
+Sport VARCHAR(100),
+FOREIGN KEY (_Location)
+    REFERENCES Locations(id)
+    ON DELETE SET NULL,
+FOREIGN KEY (_Stadium)
+    REFERENCES Stadiums(id)
+    ON DELETE SET NULL);
+
+CREATE TABLE IF NOT EXISTS Calendar_Entries (id INT PRIMARY KEY AUTO_INCREMENT,
+Sport VARCHAR(100),
+_HomeTeam INT,
+_AwayTeam INT,
+Event_Date DATE,
+Event_Time TIME,
+_Stadium INT,
+FOREIGN KEY (_HomeTeam)
+    REFERENCES Teams(id)
+    ON DELETE CASCADE,
+FOREIGN KEY (_AwayTeam)
+    REFERENCES Teams(id)
+    ON DELETE CASCADE,
+FOREIGN KEY (_Stadium)
+    REFERENCES Stadiums(id)
+    ON DELETE CASCADE);
+
+CREATE TABLE IF NOT EXISTS Results (id INT PRIMARY KEY AUTO_INCREMENT,
+Sport VARCHAR(100),
+_HomeTeam INT,
+_AwayTeam INT,
+Event_Date DATE,
+Event_Time TIME,
+_Stadium INT,
+HomeScore VARCHAR(50),
+AwayScore VARCHAR(50),
+Result INT DEFAULT 3,
+FOREIGN KEY (_HomeTeam)
+    REFERENCES Teams(id)
+    ON DELETE CASCADE,
+FOREIGN KEY (_AwayTeam)
+    REFERENCES Teams(id)
+    ON DELETE CASCADE,
+FOREIGN KEY (_Stadium)
+    REFERENCES Stadiums(id)
+    ON DELETE CASCADE);
