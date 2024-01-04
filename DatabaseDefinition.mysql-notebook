@@ -2,12 +2,12 @@
     "type": "MySQLNotebook",
     "version": "1.0",
     "caption": "DB Notebook",
-    "content": "\\about\nCREATE DATABASE SportRadarCalendarChallenge\nUSE sportradarcalendarchallenge\nCREATE TABLE Locations (id INT PRIMARY KEY AUTO_INCREMENT,\nStreet_Number INT,\nStreet_Name VARCHAR(255),\nCity VARCHAR(100),\nState VARCHAR(100),\nCountry VARCHAR(100),\nPost_Code INT);\nCREATE TABLE Stadiums (id INT PRIMARY KEY AUTO_INCREMENT,\nName VARCHAR(255),\nBase_Name VARCHAR(255),\n_Location INT,\nFOREIGN KEY (_Location)\n    REFERENCES Locations(id)\n    ON DELETE SET NULL);\nCREATE TABLE Teams (id INT PRIMARY KEY AUTO_INCREMENT,\nDisplay_Name VARCHAR(50),\nFull_Name VARCHAR(100),\nCity VARCHAR(50), \n_Location INT,\n_Stadium INT,\nContact VARCHAR(100),\nSport VARCHAR(100),\nFOREIGN KEY (_Location)\n    REFERENCES Locations(id)\n    ON DELETE SET NULL,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE SET NULL);\nCREATE TABLE Calendar_Entries (id INT PRIMARY KEY AUTO_INCREMENT,\nSport VARCHAR(100),\n_HomeTeam INT,\n_AwayTeam INT,\nEvent_Date DATE,\nEvent_Time TIME,\n_Stadium INT,\nFOREIGN KEY (_HomeTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_AwayTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE CASCADE);\nCREATE TABLE Results (id INT PRIMARY KEY AUTO_INCREMENT,\nSport VARCHAR(100),\n_HomeTeam INT,\n_AwayTeam INT,\nEvent_Date DATE,\nEvent_Time TIME,\n_Stadium INT,\nHomeScore VARCHAR(50),\nAwayScore VARCHAR(50),\nResult INT DEFAULT 3,\nFOREIGN KEY (_HomeTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_AwayTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE CASCADE);\n",
+    "content": "\\about\nCREATE DATABASE IF NOT EXISTS SportRadarCalendarChallenge;\nUSE sportradarcalendarchallenge\nCREATE TABLE IF NOT EXISTS Locations (id INT PRIMARY KEY AUTO_INCREMENT,\nStreet_Number INT,\nStreet_Name VARCHAR(255),\nCity VARCHAR(100),\nState VARCHAR(100),\nCountry VARCHAR(100),\nPost_Code INT);\nCREATE TABLE IF NOT EXISTS Stadiums (id INT PRIMARY KEY AUTO_INCREMENT,\nName VARCHAR(255),\nBase_Name VARCHAR(255),\n_Location INT,\nFOREIGN KEY (_Location)\n    REFERENCES Locations(id)\n    ON DELETE SET NULL);\nCREATE TABLE IF NOT EXISTS Teams (id INT PRIMARY KEY AUTO_INCREMENT,\nDisplay_Name VARCHAR(50),\nFull_Name VARCHAR(100),\nCity VARCHAR(50), \n_Location INT,\n_Stadium INT,\nContact VARCHAR(100),\nSport VARCHAR(100),\nFOREIGN KEY (_Location)\n    REFERENCES Locations(id)\n    ON DELETE SET NULL,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE SET NULL);\nCREATE TABLE IF NOT EXISTS Calendar_Entries (id INT PRIMARY KEY AUTO_INCREMENT,\nSport VARCHAR(100),\n_HomeTeam INT,\n_AwayTeam INT,\nEvent_Date DATE,\nEvent_Time TIME,\n_Stadium INT,\nFOREIGN KEY (_HomeTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_AwayTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE CASCADE);\nCREATE TABLE IF NOT EXISTS Results (id INT PRIMARY KEY AUTO_INCREMENT,\nSport VARCHAR(100),\n_HomeTeam INT,\n_AwayTeam INT,\nEvent_Date DATE,\nEvent_Time TIME,\n_Stadium INT,\nHomeScore VARCHAR(50),\nAwayScore VARCHAR(50),\nResult INT DEFAULT 3,\nFOREIGN KEY (_HomeTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_AwayTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE CASCADE);\n",
     "options": {
         "tabSize": 4,
-        "indentSize": 4,
         "insertSpaces": true,
-        "defaultEOL": "LF",
+        "indentSize": 4,
+        "defaultEOL": "CRLF",
         "trimAutoWhitespace": true
     },
     "viewState": {
@@ -27,10 +27,10 @@
         "viewState": {
             "scrollLeft": 0,
             "firstPosition": {
-                "lineNumber": 41,
+                "lineNumber": 29,
                 "column": 1
             },
-            "firstPositionDeltaTop": -16
+            "firstPositionDeltaTop": -17
         },
         "contributionsState": {
             "editor.contrib.folding": {},
@@ -79,8 +79,8 @@
                         {
                             "type": 4,
                             "index": 0,
-                            "resultId": "24ae34ab-00b5-443a-91d1-1c0d8d6a1f49",
-                            "content": "OK, 1 row affected in 7.887ms"
+                            "resultId": "877353fe-f600-4565-ec76-427d4ae68a37",
+                            "content": "OK, 1 row affected in 0s"
                         }
                     ]
                 },
@@ -90,10 +90,10 @@
                         "delimiter": ";",
                         "span": {
                             "start": 0,
-                            "length": 43
+                            "length": 58
                         },
                         "contentStart": 0,
-                        "state": 3
+                        "state": 0
                     }
                 ]
             },
@@ -152,7 +152,7 @@
                         "delimiter": ";",
                         "span": {
                             "start": 0,
-                            "length": 180
+                            "length": 194
                         },
                         "contentStart": 0,
                         "state": 0
@@ -183,7 +183,7 @@
                         "delimiter": ";",
                         "span": {
                             "start": 0,
-                            "length": 193
+                            "length": 207
                         },
                         "contentStart": 0,
                         "state": 0
@@ -214,7 +214,7 @@
                         "delimiter": ";",
                         "span": {
                             "start": 0,
-                            "length": 347
+                            "length": 361
                         },
                         "contentStart": 0,
                         "state": 0
@@ -245,7 +245,7 @@
                         "delimiter": ";",
                         "span": {
                             "start": 0,
-                            "length": 382
+                            "length": 396
                         },
                         "contentStart": 0,
                         "state": 0
@@ -265,8 +265,8 @@
                         {
                             "type": 4,
                             "index": 0,
-                            "resultId": "df0a829e-a6cf-4f78-da84-6b501611543c",
-                            "content": "OK, 0 records retrieved in 19.702ms"
+                            "resultId": "7eaec16d-9438-4471-859f-87114296a552",
+                            "content": "OK, 0 records retrieved in 10.097ms"
                         }
                     ]
                 },
@@ -276,7 +276,7 @@
                         "delimiter": ";",
                         "span": {
                             "start": 0,
-                            "length": 441
+                            "length": 455
                         },
                         "contentStart": 0,
                         "state": 0
