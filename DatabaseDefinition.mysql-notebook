@@ -1,0 +1,90 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "Untitled-1",
+    "content": "CREATE DATABASE IF NOT EXISTS SportRadarCalendarChallenge;\nUSE sportradarcalendarchallenge;\n\nCREATE TABLE IF NOT EXISTS Locations (id INT PRIMARY KEY AUTO_INCREMENT,\nStreet_Number INT,\nStreet_Name VARCHAR(255),\nCity VARCHAR(100),\nState VARCHAR(100),\nCountry VARCHAR(100),\nPost_Code INT);\n\nCREATE TABLE IF NOT EXISTS Stadiums (id INT PRIMARY KEY AUTO_INCREMENT,\nName VARCHAR(255),\nBase_Name VARCHAR(255),\n_Location INT,\nFOREIGN KEY (_Location)\n    REFERENCES Locations(id)\n    ON DELETE SET NULL);\n\nCREATE TABLE IF NOT EXISTS Teams (id INT PRIMARY KEY AUTO_INCREMENT,\nDisplay_Name VARCHAR(50),\nFull_Name VARCHAR(100),\nCity VARCHAR(50), \n_Location INT,\n_Stadium INT,\nContact VARCHAR(100),\nSport VARCHAR(100),\nFOREIGN KEY (_Location)\n    REFERENCES Locations(id)\n    ON DELETE SET NULL,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE SET NULL);\n\nCREATE TABLE IF NOT EXISTS Calendar_Entries (id INT PRIMARY KEY AUTO_INCREMENT,\nSport VARCHAR(100),\n_HomeTeam INT,\n_AwayTeam INT,\nEvent_Date DATE,\nEvent_Time TIME,\n_Stadium INT,\nFOREIGN KEY (_HomeTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_AwayTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE CASCADE);\n\nCREATE TABLE IF NOT EXISTS Results (id INT PRIMARY KEY AUTO_INCREMENT,\nSport VARCHAR(100),\n_HomeTeam INT,\n_AwayTeam INT,\nEvent_Date DATE,\nEvent_Time TIME,\n_Stadium INT,\nHomeScore VARCHAR(50),\nAwayScore VARCHAR(50),\nResult INT DEFAULT 3,\nFOREIGN KEY (_HomeTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_AwayTeam)\n    REFERENCES Teams(id)\n    ON DELETE CASCADE,\nFOREIGN KEY (_Stadium)\n    REFERENCES Stadiums(id)\n    ON DELETE CASCADE);",
+    "options": {
+        "tabSize": 4,
+        "insertSpaces": true,
+        "indentSize": 4,
+        "defaultEOL": "CRLF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": null,
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 70,
+                "language": "mysql",
+                "currentHeight": 180,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 58
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 58,
+                            "length": 33
+                        },
+                        "contentStart": 59,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 91,
+                            "length": 196
+                        },
+                        "contentStart": 93,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 287,
+                            "length": 209
+                        },
+                        "contentStart": 289,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 496,
+                            "length": 363
+                        },
+                        "contentStart": 498,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 859,
+                            "length": 398
+                        },
+                        "contentStart": 861,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 1257,
+                            "length": 457
+                        },
+                        "contentStart": 1259,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
