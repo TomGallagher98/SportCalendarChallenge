@@ -1,0 +1,30 @@
+INSERT INTO locations VALUES
+ROW (0, 36, "Graysharps Road", "Hurstbridge", "Victoria", "Australia", 3099),
+ROW (0, 2247, "Alte Strasse", "Stratzing", "Lower Austria", "Austria", 3552),
+ROW (0, 12, "Steinergasse", "Vienna", "Vienna", "Austria", 1230),
+ROW (0, 1, "Arthurs Creek Road", "Hurstbridge", "Victoria", "Australia", 3099),
+ROW (0, 20 , "Meiereistrasse", "Vienna", "Vienna", "Austria" , 1020);
+
+INSERT INTO Stadiums VALUES 
+ROW (0, "Ben Frilay Oval", "Ben Frilay Oval", 1),
+ROW (0, "Stratzing Tennis Club", "Stratzing Tennis Club", 2),
+ROW (0, "Vienna Celtic Rugby Club", "Vienna Celtic Rugby Club", 3),
+ROW (0, "Hurstbridge Tennis Club", "Hurstbridge Tennis Club", 4),
+ROW (0, "Rugby Union Donau Vienna" , "Donau Rugbypark", 5);
+
+INSERT INTO Teams VALUES
+ROW (0, "Hurstbridge", "Hurstbridge Football Netball Club", "Hurstbridge", 1, 1, 0458685020, "Australian Football"),
+ROW (0, "Hurstbridge", "Hurstbridge Cricket Club", "Hurstbridge", 1, 1, 0458685020, "Cricket"),
+ROW (0, "Stratzing", "Stratzing Tennis Club", "Stratzing", 2, 2, 0458685020, "Tennis"),
+ROW (0, "Vienna Galahs", "Vienna Galahs Australian Football Club", "Vienna", 3, 3, 0458685020, "Australian Football"),
+ROW (0, "Vienna Celtics", "Vienna Celtic Rugby Football Club", "Vienna", 3, 3, 0458685020, "Rugby"),
+ROW (0, "Hurstbridge", "Hurstbridge Tennis Club", "Hurstbridge", 4, 4, 0476001624, "Tennis"),
+ROW (0, "Vienna Donau", "Vienna Donau Rugby Union Club", "Vienna", 5, 5, 476001624, "Rugby");
+
+INSERT INTO Calendar_Entries VALUES
+ROW (0, "Australian Football", 1, 4, "2024-02-10", "14:00:00", 1),
+ROW (0, "Tennis", 3, 6, "2024-02-19", "09:15:00", 2),
+ROW (0, "Rugby", 5, 7, "2024-01-25", "12:30:00", 3),
+ROW (0, "Australian Football", 4, 1, "2024-03-26", "14:00:00", 3),
+ROW (0, "Rugby", 7,5, "2024-03-22", "18:30:00", 5),
+ROW (0, "Tennis", 6, 3, "2024-05-25", "12:30:00", 4);
