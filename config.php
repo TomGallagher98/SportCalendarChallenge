@@ -1,5 +1,5 @@
 <?php
-    define('SERVER', "localhost");
-    define('USERNAME', "root");
-    define("PASSWORD", "");
-    define("DATABASE", 'sportradarcalendarchallenge');
+    if (!defined('SERVER')) define('SERVER', "localhost");
+    if (!defined('USERNAME')) define('USERNAME', "root");
+    if (!defined('PASSWORD')) define("PASSWORD", "");
+    if (!defined('DATABASE')) define("DATABASE", 'sportradarcalendarchallenge');

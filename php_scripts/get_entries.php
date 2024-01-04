@@ -11,5 +11,6 @@ function getEntries(){
     while($row = $result->fetch_assoc()){
         $games[] = $row;
     }
+    $mysqli -> close();
     return $games;
 }

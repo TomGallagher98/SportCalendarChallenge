@@ -1,5 +1,5 @@
 <?php require "php_scripts/get_entries.php"; ?>
-
+<?php require "php_scripts/filter_sports.php"; ?>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
     </header>
 
     <main>
-        <div class="Main-table"></div>
+        <div class="Main-table">
         <?php $entries = getEntries(); ?>
         <table border="1">
             <tr>
@@ -44,5 +44,23 @@
             }
         ?>
         </table>
+        </div>
+    
+        <div class="filter">
+        <?php $sports = getSports(); ?>
+            <form action="php_scripts/filter_sports.php">
+                <label for="Sports">Select sport</label>
+                <select name="sports" id="sports">
+                    <option></option>
+                    <?php 
+                    foreach ($sports as $sport) {
+                        ?>
+                        <option><?php echo $sport['Sport'] ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </form>
+        </div>
     </main>
 </body>
