@@ -19,8 +19,33 @@
     </header>
 
     <main>
+        <div class="filter">
+            <?php $sports = getSports(); ?>
+                <form method="POST">
+                <select name="sports" id="id_sports">
+                    <option></option>
+                    <?php 
+                    foreach ($sports as $sport) {
+                        ?>
+                        <option><?php echo $sport['Sport'] ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <input name="submit" type="submit" value="Search"/>
+            </form>
+        
+        
+        </div>
+
         <div class="Main-table">
-        <?php $entries = getEntries(); ?>
+
+        <?php 
+            $choice = isset($_POST['sports'])? $_POST['sports'] :''; 
+            echo $choice;
+            $entries = getEntries($choice); 
+            ?>
+            
         <table border="1">
             <tr>
                 <th>Day</th>
@@ -33,8 +58,7 @@
             foreach ($entries as $entry) { 
                 ?>
                 <tr>
-                    
-                    <td>Sat.</td>
+                    <td><?php echo intval($entry['Event_Date']->format('w')) ?></td>
                     <td><?php echo $entry['Event_Date'] ?> </td>
                     <td><?php echo $entry['Event_Time'] ?></td>
                     <td><?php echo $entry['Sport'] ?></td>
@@ -46,21 +70,16 @@
         </table>
         </div>
     
-        <div class="filter">
-        <?php $sports = getSports(); ?>
-            <form action="php_scripts/filter_sports.php">
-                <label for="Sports">Select sport</label>
-                <select name="sports" id="sports">
-                    <option></option>
-                    <?php 
-                    foreach ($sports as $sport) {
-                        ?>
-                        <option><?php echo $sport['Sport'] ?></option>
-                    <?php
-                    }
-                    ?>
-                </select>
-            </form>
-        </div>
+        
     </main>
+
+    
 </body>
+
+<script>
+ function update_textbox(){
+  var selectbox = document.getElementById('id_sports');
+  var id_sports = selectbox[selectbox.selectedIndex].text;
+  document.getElementById('showit').value=id_sports ;
+ }
+</script>
