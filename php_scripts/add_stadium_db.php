@@ -15,7 +15,7 @@
     settype($location, "integer");
     // $mysqli -> dbConnect();
     $sql = "INSERT INTO stadiums VALUES
-    (0, $street_number, '$street_name', $location )";
+    (0, $name, '$base_name', $location )";
 
     if ($mysqli -> query($sql) == TRUE) {
         echo "Successfully Added Event";
