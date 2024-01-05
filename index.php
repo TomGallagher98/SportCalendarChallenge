@@ -68,10 +68,10 @@
         ?>
         </table>
         </div>
-    
+        <?php include "add_event.php" ?>
         
     </main>
         
-    <?php include "add_event.php" ?>
+   
     
 </body>
