@@ -13,13 +13,11 @@
 <body>
     <header>
         <h1> Sports Calendar </h1>
-        <p class="subtitle">
-            Choose between Calendar and List display
-        </p>
     </header>
 
     <main>
         <div class="filter">
+            <p>Filter sports</p>
             <?php $sports = getSports(); ?>
                 <form method="POST">
                 <select name="sports" id="id_sports">
@@ -34,8 +32,6 @@
                 </select>
                 <input name="submit" type="submit" value="Search"/>
             </form>
-        
-        
         </div>
 
         <div class="Main-table">
@@ -44,7 +40,7 @@
             $choice = isset($_POST['sports'])? $_POST['sports'] :''; 
             echo $choice;
             $entries = getEntries($choice); 
-            ?>
+        ?>
             
         <table border="1">
             <tr>
@@ -72,6 +68,7 @@
     
         
     </main>
-
+        
+    <?php include "add_event.php" ?>
     
 </body>
