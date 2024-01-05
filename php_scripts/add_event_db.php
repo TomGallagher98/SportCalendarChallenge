@@ -3,7 +3,7 @@
 
     if (!defined('SERVER')) define('SERVER', "localhost");
     if (!defined('USERNAME')) define('USERNAME', "root");
-    if (!defined('PASSWORD')) define("PASSWORD", "6440");
+    if (!defined('PASSWORD')) define("PASSWORD", "");
     if (!defined('DATABASE')) define("DATABASE", 'sportradarcalendarchallenge');
     $mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DATABASE);
     
@@ -23,7 +23,9 @@
     (0, '$sport', $home_team, $away_team, '$event_date', '$event_time', $stadium )";
 
     if ($mysqli -> query($sql) == TRUE) {
-        echo "Successfully Added Event";
+        echo "Successfully Added Event";?>
+        <button onclick="location.href='../index.php'" type="button">Return to Calendar</button>"
+        <?php
     } else {
         echo "Error:" . $sql . "<br>" . $mysqli->error;
     }

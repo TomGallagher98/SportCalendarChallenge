@@ -69,9 +69,5 @@
                 </table>
             </div>
         </div>
-        
-        <div class="right">
-            <?php include "data_lookup.php"?>
-        </div>
     </main>
 </body>

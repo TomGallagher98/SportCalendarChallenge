@@ -7,4 +7,5 @@
             <a data-active="add_stadium" href="add_stadium.php">Add Stadium</a>
             <a data-active="add_location" href="add_location.php">Add Location</a>
         </div>
+
     </nav>
