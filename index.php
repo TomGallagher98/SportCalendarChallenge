@@ -58,7 +58,7 @@
             foreach ($entries as $entry) { 
                 ?>
                 <tr>
-                    <td><?php echo intval($entry['Event_Date']->format('w')) ?></td>
+                    <td><?php echo date('l', strtotime($entry['Event_Date'])) ?></td>
                     <td><?php echo $entry['Event_Date'] ?> </td>
                     <td><?php echo $entry['Event_Time'] ?></td>
                     <td><?php echo $entry['Sport'] ?></td>
