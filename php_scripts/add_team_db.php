@@ -23,7 +23,9 @@
     (0, '$display_name', '$full_name', '$city', $location, $stadium, '$contact', '$sport' )";
 
     if ($mysqli -> query($sql) == TRUE) {
-        echo "Successfully Added Event";
+        echo "Successfully Added Event"; ?>
+        <button onclick="location.href='../index.php'" type="button">Return to Calendar</button>"
+        <?php
     } else {
         echo "Error:" . $sql . "<br>" . $mysqli->error;
     }

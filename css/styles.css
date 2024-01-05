@@ -1,0 +1,8 @@
+/* MAIN */
+
+main {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 50px;
+}
