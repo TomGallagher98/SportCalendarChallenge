@@ -3,7 +3,7 @@
 
     if (!defined('SERVER')) define('SERVER', "localhost");
     if (!defined('USERNAME')) define('USERNAME', "root");
-    if (!defined('PASSWORD')) define("PASSWORD", "6440");
+    if (!defined('PASSWORD')) define("PASSWORD", "");
     if (!defined('DATABASE')) define("DATABASE", 'sportradarcalendarchallenge');
     $mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DATABASE);
     
@@ -19,7 +19,7 @@
     settype($location, "integer");
     settype($stadium, "integer");
     // $mysqli -> dbConnect();
-    $sql = "INSERT INTO calendar_entries VALUES
+    $sql = "INSERT INTO teams VALUES
     (0, '$display_name', '$full_name', '$city', $location, $stadium, '$contact', '$sport' )";
 
     if ($mysqli -> query($sql) == TRUE) {

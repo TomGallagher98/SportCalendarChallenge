@@ -2,9 +2,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <title>Add Team</title>
 </head>
 
@@ -12,12 +9,12 @@
 <?php include "nav.php" ?>
 <div>
     <h1>
-        Add new event
+        Add new team
     </h1>
          <form action="/php_scripts/add_team_db.php" method="post">
              
             <p>
-               <label for="display_name">Dispaly Name:</label>
+               <label for="display_name">Display Name:</label>
                <input type="text" name="display_name" id="display_name" >
             </p>
              
