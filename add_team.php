@@ -30,12 +30,12 @@
             
             <p>
                <label for="location">Home Location:</label>
-               <input type="text" name="location" id="location" >
+               <input type="number" name="location" id="location" placeholder="Add Location ID>
             </p>
             
             <p>
                <label for="stadium">Home Stadium:</label>
-               <input type="text" name="stadium" id="stadium">
+               <input type="number" name="stadium" id="stadium" placeholder="Add Stadium ID>
             </p>
 
             <p>

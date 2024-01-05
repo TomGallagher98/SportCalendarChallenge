@@ -15,7 +15,7 @@
              
             <p>
                <label for="street_number">Street Number:</label>
-               <input type="text" name="street_number" id="street_number" >
+               <input type="number" name="street_number" id="street_number" >
             </p>
              
             <p>
