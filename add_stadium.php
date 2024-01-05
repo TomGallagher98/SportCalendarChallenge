@@ -28,7 +28,7 @@
             
             <p>
                <label for="location">Location:</label>
-               <input type="text" name="location" id="location" >
+               <input type="number" name="location" id="location" >
             </p>
  
             <input type="submit" value="Submit">
