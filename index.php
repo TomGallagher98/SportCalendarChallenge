@@ -75,11 +75,3 @@
 
     
 </body>
-
-<script>
- function update_textbox(){
-  var selectbox = document.getElementById('id_sports');
-  var id_sports = selectbox[selectbox.selectedIndex].text;
-  document.getElementById('showit').value=id_sports ;
- }
-</script>

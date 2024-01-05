@@ -5,6 +5,7 @@ function getEntries($sport){
     if (strcmp($sport,"") == 0) {
         $sport = '%_';
     }
+    
     $mysqli = dbConnect();
     $result = $mysqli->query("SELECT c.Event_Date, c.Event_Time, c.Sport, t.Display_Name as Home, t2.Display_Name as Away
                             FROM calendar_entries c
