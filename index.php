@@ -11,6 +11,9 @@
 </head>
 
 <body>
+
+<?php include "nav.php" ?>
+
     <header>
         <h1> Sports Calendar </h1>
     </header>
